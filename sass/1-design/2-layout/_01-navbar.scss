@@ -1,0 +1,15 @@
+// Navbar
+
+.navbar {
+    background: transparent;
+    position: sticky;
+    top: 0;
+}
+
+a.navbar-item:hover {
+    background: transparent;
+}
+
+.black {
+    background-color: $main-3;
+}

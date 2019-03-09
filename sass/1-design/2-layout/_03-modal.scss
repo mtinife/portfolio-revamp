@@ -1,0 +1,37 @@
+// Modal styles
+.bg-modal {
+    position: absolute;
+    top: 0;
+    display: none;
+    background: $modal-bg;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    position: fixed;
+    transition: all 0.5s ease-in-out;
+}
+
+.modal-content {
+    height: 800px;
+    width: 500px;
+    background-color: white;
+    padding: 20px;
+    position: relative;
+    border-radius: 4px;
+    z-index: 1001;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 32px;
+    padding: .5em;
+    cursor: pointer;
+
+    &:hover {
+        color: #666;
+    }
+}
