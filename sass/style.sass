@@ -1,0 +1,488 @@
+@use '../node_modules/remixicon/fonts/remixicon.css'
+@use '_reset.sass'
+
+$color-black:       #000000
+$color-dark:        #0D0D0D
+$color-dark-trans:  #363636a2
+$color-white:       #FFFFFF
+$color-dark-black:  #363636
+$color-grey:        #707070
+$color-gray-a:      #AAAAAA
+$color-dark-grey:   #131313
+$color-light-grey:  #303030
+$color-gold:        #d9843b
+$color-red:         #d92938
+
+$font-roboto:         'Roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+$font-weight-thin:    100
+$font-weight-light:   300
+$font-weight-regular: 400
+$font-weight-medium:  500
+$font-weight-bold:    700
+$font-weight-black:   900
+
+$font-size-lg:        10.625em //170px
+$font-size-md:        7.5em //100px
+$font-size-ml:        3.75em //60px
+$font-size-mm:        3em //48px
+$font-size-ms:        2.5em //40px
+$font-size-sm:        1.875em //30px
+$font-size-xs:        1.5em //24px
+$font-size-xxs:       1.125em //18px
+$font-default:        1em //16px
+
+$text-center: center
+$center: 0 auto
+$container-width: 90%
+$large-spacing: 216px 0
+$small-spacing: 30px 0
+$border-radius: 6px
+
+$main-spacing: 10em 0//60px
+$mid-spacing: 5em 0
+$sub-spacing: 2em 0
+
+$padding-side: 60px
+
+$responsive-grid: repeat(auto-fit, minmax(320px, 1fr))
+
+html
+    scroll-behavior: smooth
+    scroll-padding-top: 10em
+
+::-webkit-scrollbar
+    width: 5px
+
+::-webkit-scrollbar-thumb
+    background: $color-grey
+    border-radius: 8px
+
+::-webkit-scrollbar-thumb:hover
+    background: $color-dark-grey
+
+.color-white
+    color: $color-white
+
+.color-dark
+    color: $color-dark
+
+.text-center
+    text-align: center
+
+.background-light
+    background-color: $color-white
+    color: $color-dark
+
+body
+    font-family: $font-roboto
+    font-size: $font-default
+    background: $color-dark
+
+.fade 
+    animation-name: fade
+    animation-duration: 1.5s
+
+@keyframes fade 
+    from 
+        opacity: .4
+    to 
+        opacity: 1
+
+
+.heading
+    font-size: 2em
+    font-size: calc(clamp(2em, 0.3999999999999999em + 8vw, 10em))
+    font-weight: $font-weight-black
+    text-transform: uppercase
+    line-height: 115px
+
+.sub-heading
+    // font-size: $font-size-ml //60px
+    font-size: 1.25em
+    font-size: calc(clamp(1.25em, 0.75em + 2.5vw, 3.75em))
+
+.large-text
+    // font-size: $font-size-mm //48px
+    font-size: 1.25em
+    font-size: calc(clamp(1.25em, 0.75em + 2.5vw, 3.75em))
+
+.medium-text
+    // font-size: $font-size-ms //40px
+    font-size: 0.75em
+    font-size: calc(clamp(0.75em, 0.39999999999999997em + 1.7500000000000002vw, 2.5em))
+
+.paragraph
+    // font-size: $font-size-sm //30px
+    font-size: 0.75em
+    font-size: calc(clamp(0.75em, 0.525em + 1.125vw, 1.875em))
+
+.small-text
+    font-weight: $font-weight-light
+    // font-size: $font-size-xs //24px
+    font-size: 0.6875em
+    font-size: calc(clamp(0.6875em, 0.525em + 0.8125vw, 1.5em))
+
+.xtrasmall-text
+    // font-size: $font-size-xxs //18px
+    font-size: 0.75em
+    font-size: calc(clamp(0.75em, 0.675em + 0.375vw, 1.125em))
+
+.text-default
+    // font-size: $font-default //16px
+    font-size: 0.75em
+    font-size: calc(clamp(0.75em, 0.7em + 0.25vw, 1em))
+    font-weight: $font-weight-light
+
+.container
+    margin: $center
+    width: $container-width
+
+.main-spacing
+    padding: $main-spacing
+
+.mid-spacing
+    padding: $mid-spacing
+
+.sub-spacing
+    padding: $sub-spacing
+
+.coolBackgroundSpacer
+    aspect-ratio: 960/300
+    width: 100%
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center center
+
+.coolBackground
+    background-image: url("/dist/img/bgsvg1.svg")
+
+.coolBackground1
+    background-image: url("/dist/img/bgsvg2.svg")
+
+.coolBackground2
+    background-image: url("/dist/img/bgsvg3.svg")
+
+.btn
+    width: 180px
+    height: 60px
+    cursor: pointer
+    background: transparent
+    border: 1px solid $color-light-grey
+    color: $color-light-grey
+    outline: none
+    transition: 1s ease-in-out
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr
+    position: relative
+    svg 
+        position: absolute
+        left: 0
+        top: 0
+        fill: none
+        stroke: $color-white
+        stroke-dasharray: 150 480
+        stroke-dashoffset: 150
+        transition: 1s ease-in-out
+        grid-area: 1 / 1 / 2 / 2
+
+.btn:hover 
+    transition: 1s ease-in-out
+    background: $color-dark-black
+
+
+.btn:hover svg 
+    stroke-dashoffset: -480
+
+.btn span 
+    grid-area: 1 / 1 / 2 / 2
+    display: flex
+    align-self: center
+    justify-content: center
+    color: $color-white
+    font-size: 18px
+    font-weight: 100
+
+nav
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 50px 0 0
+
+.floating-nav
+    position: fixed
+    bottom: 5%
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 9999
+    display: flex
+    justify-content: center
+    align-items: center
+    font-weight: $font-weight-regular
+    gap: 5px
+    &-items
+        display: flex
+        background-color: rgba(0, 0, 0, 0.75)
+        padding: 7px
+        border-radius: 120px
+        div.vertical-line
+            width: 1px
+            background-color: $color-dark-black
+            height: 100%
+            float: left
+        &__item
+            padding: 7px 30px
+            background-color: $color-dark-trans
+            font-size: .75em
+            color: $color-grey
+            transition: all .2s ease-in-out
+            &:hover
+                background-color: $color-dark-grey
+                color: $color-white
+            .active
+                background-color: $color-dark-grey
+                color: $color-white
+    &__top
+        padding: 10px 10px 10px 9.5px 
+        display: flex
+        justify-content: center
+        align-items: center
+        color: $color-gray-a
+        background-color: rgba(0, 0, 0, 0.75)
+        border-radius: 50%
+        font-size: 1.5em
+        &:hover
+            color: $color-white
+    .floating-btn-about
+        border-top-left-radius: 60px
+        border-bottom-left-radius: 60px
+    .floating-btn-contact
+        border-top-right-radius: 60px
+        border-bottom-right-radius: 60px
+
+.hero
+    &__scroll__text
+        font-weight: $font-weight-light
+        padding: $small-spacing
+    &__cta
+        display: flex
+        align-items: center
+        justify-content: center
+        gap: 20px
+
+.showcase
+    &__item
+        display: none
+        grid-template-columns: 1fr
+        grid-template-rows: 1fr
+    &__banner
+        grid-area: 1 / 1 / 2 / 2
+        &__image
+            border-radius: $border-radius
+    &__overlay
+        border-radius: $border-radius
+        background: rgb(13,13,13)
+        background: linear-gradient(180deg, rgba(13,13,13,0) 0%, rgba(13,13,13,0.4331933456976541) 25%, rgba(13,13,13,0.6880953064819677) 50%, rgba(13,13,13,0.8617647742690826) 75%, rgba(13,13,13,1) 100%)
+        grid-area: 1 / 1 / 2 / 2
+        padding: calc(20px + (100vw - 700px) * (15 - 30) / (700 - 1000)) 
+        height: 100%
+        &__content
+            display: flex
+            justify-content: space-between
+            align-items: flex-end
+            height: 100%
+            &__right
+                display: flex
+                a
+                    text-decoration: none
+                    &:first-child
+                        padding-right: 30px
+                    i
+                        font-size: 0.75em
+                        font-size: calc(clamp(0.75em, 0.525em + 1.125vw, 1.875em))
+    &__pagination
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 20px
+        margin: 2em 0 5em 0
+        span
+            position: relative
+            display: block
+            width: 100px
+            height: 2px
+            background-color: $color-dark-black
+            &::before
+                content: ""
+                position: absolute
+                top: 0
+                left: 0
+                width: 50%
+                height: 100%
+                background-color: $color-grey
+
+.carousel
+    margin: 0 0 5em 0
+
+.button-style
+    border: none
+    background: transparent
+    padding: 20px calc(24px + 1.5625vw)
+
+.background-black
+    background-color: $color-dark
+
+.icon
+    font-size: calc(clamp(1em, -0.8750em + 8.3333vw, 2.0em))
+    color: $color-white
+    opacity: 0.6
+    &:hover
+        opacity: 1
+
+.my-slider-progress 
+    background: $color-grey
+    border-radius: 6px
+
+.splide__pagination
+    padding: 25px
+
+.my-slider-progress-bar 
+    background: $color-red
+    height: 2px
+    transition: width 400ms ease
+    width: 0
+    border-radius: 6px
+
+.slide__content
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr
+
+.carousel__image, .carousel__overlay, .carousel__content
+    grid-area: 1 / 1 / 2 / 2
+
+.carousel__image
+    width: 100%
+    height: 600px
+    border-radius: 6px 6px 0px 0px
+    object-fit: cover
+    object-position: top left
+
+.carousel__overlay 
+    background: rgb(13, 13, 13)
+    background: linear-gradient(180deg, rgba(13,13,13,0) 0%, rgba(13,13,13,0.4331933456976541) 25%, rgba(13,13,13,0.6880953064819677) 50%, rgba(13,13,13,0.8617647742690826) 75%, rgba(13,13,13,1) 100%)
+    border-radius: 6px 6px 0px 0px
+
+.carousel__content
+    color: $color-white
+    display: flex
+    justify-content: space-between
+    align-items: end
+    padding: calc(24px + 1.5625vw)
+
+.carousel__content__left
+    .type
+        font-size: calc(clamp(1em, -0.875rem + 8.3333vw, 1.5em))
+        padding-bottom: 15px
+        font-weight: 100
+    .title
+        font-size: calc(clamp(1em, -0.875rem + 8.3333vw, 2.5em))
+        font-weight: bold
+
+.carousel__content__right a 
+    text-decoration: none
+
+.projects
+    width: 100%
+    .projects__additional
+        display: grid
+        grid-template-columns: $responsive-grid
+        gap: 1rem
+        align-items: center
+        gap: 20px
+        &__project
+            display: grid
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr
+            height: 300px
+            &:hover .projects__additional__project__overlay
+                opacity: 1
+                // transition: all 300ms ease-in-out
+                transition-property: opacity
+                transition-duration: .2s
+                transition-timing-function: linear
+            &__image
+                border-radius: $border-radius
+                grid-area: 1 / 1 / 2 / 2
+                width: 100%
+                height: 100%
+                object-fit: cover
+                object-position: top left
+            &__overlay
+                opacity: 0
+                border-radius: $border-radius
+                background: rgb(13,13,13)
+                background: linear-gradient(180deg, rgba(13,13,13,0) 0%, rgba(13,13,13,0.4331933456976541) 25%, rgba(13,13,13,0.6880953064819677) 50%, rgba(13,13,13,0.8617647742690826) 75%, rgba(13,13,13,1) 100%)
+                grid-area: 1 / 1 / 2 / 2
+                padding: 20px 20px
+                display: flex
+                justify-content: space-between
+                align-items: flex-end
+                height: 100%
+                &__right
+                    display: flex
+                    justify-content: space-between
+                    align-items: flex-end
+                    a
+                        text-decoration: none
+                        &:first-child
+                            padding-right: 20px
+                        i
+                            font-size: 0.6875em
+                            font-size: calc(clamp(0.6875em, 0.525em + 0.8125vw, 1.5em))
+                            display: flex
+                            justify-content: flex-end
+
+// .projects__additional__project:hover .projects__additional__project__overlay
+//     opacity: 1
+
+.about
+    &__content
+        padding: calc(60px + (100vw - 700px) * (15 - 30) / (700 - 1000))
+        background-color: $color-dark-grey
+        border-radius: 6px
+
+.contact
+    &__content
+        display: grid
+        grid-template-columns: $responsive-grid
+        gap: 1rem
+    &__form
+        display: flex
+        flex-direction: column
+        &__input, &__select, &__msg
+            padding: 10px 15px
+            background-color: $color-dark-grey
+            border: none
+            margin: 5px 0 20px 0
+            border-radius: $border-radius
+        &__input:focus, &__select:focus, &__msg:focus
+            border: 1px solid $color-dark-black
+            color: $color-white
+        &__input, &__select, &__msg
+            color: $color-white
+        &__button
+            display: grid
+            grid-template-columns: 0.3fr 1fr
+            gap: 20px
+            p
+                font-weight: $font-weight-thin
+
+footer
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: .75em
+    color: $color-dark-black
+    padding: 20px 0

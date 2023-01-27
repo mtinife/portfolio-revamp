@@ -1,0 +1,30 @@
+{
+    "compile-hero.disable-compile-files-on-did-save-code": false,
+    "editor.fontSize": 11,
+    "editor.minimap.maxColumn": 60,
+    "compile-hero.language": {
+
+        "js": {
+            "type": [
+                "javascript",
+                "json",
+                "jsonc"
+            ],
+            "filename": [
+                ".jshintrc",
+                ".jsbeautifyrc"
+            ]
+        },
+        "css": [
+            "css",
+            "less",
+            "scss"
+        ],
+        "html": [
+            "htm",
+            "html"
+        ]
+    },
+    "compile-hero.javascript-output-toggle": false,
+    "compile-hero.javascript-output-directory": ""
+}
