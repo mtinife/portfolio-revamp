@@ -1,5 +1,7 @@
 "use strict";
 
+const form = document.querySelector("contact__form");
+
 // var splide = new Splide( '.splide' );
 const splide = new Splide(".splide", {
     type: "loop",
@@ -23,16 +25,10 @@ splide.on("mounted move", function () {
     bar.style.width = String(100 * rate) + "%";
 });
 
-// splide.on( 'autoplay:playing', function ( rate ) {
-//   console.log( rate );
-// } );
-
 splide.mount();
 
-let floatingItemTop = document.querySelector(".floating-nav__top");
-
-
 function scrollFunction() {
+    let floatingItemTop = document.querySelector(".floating-nav__top");
     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
         floatingItemTop.style.display = "grid";
     } else {
@@ -40,44 +36,29 @@ function scrollFunction() {
     }
 }
 
-function changeFloatingNavOnScroll() {
-    let sessions = document.querySelectorAll('.session');
-    let floatingNavItems = document.querySelectorAll('.floating-nav-items__item');
-    // let current = "";
-
-    var current = "";
-
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 60) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLi.forEach((li) => {
-        li.classList.remove("active");
-        if (li.classList.contains(current)) {
-            li.classList.add("active");
-        }
-    });
-    sessions.forEach((session) => {
-        const sessionTop = session.offsetTop;
-
-        if (scrollY >= sectionTop - 60) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLi.forEach((li) => {
-        li.classList.remove("active");
-        if (li.classList.contains(current)) {
-            li.classList.add("active");
-        }
-    })
-}
-}
-
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+
+//1.
+const formEvent = form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    //2.
+    let mail = new FormData(form);
+
+    //3.
+    sendMail(mail);
+})
+
+const sendMail = (mail) => {
+  //1.
+    fetch("/send", {
+        method: "post", //2.
+        body: mail, //3.
+
+    }).then((response) => {
+        return response.json();
+    });
+};

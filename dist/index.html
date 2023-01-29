@@ -22,8 +22,8 @@
 </head>
 
 <body id="tothetop">
-    <header class="sub-spacing">
-        <nav class="container">
+    <header class="container sub-spacing">
+        <div class="header-nav">
             <a class="logo" href="#"><img width="60px" src="./img/logo.svg" /></a>
             <a href="#contactSection" class="btn">
                 <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
@@ -32,21 +32,22 @@
                 </svg>
                 <span>Contact</span>
             </a>
-        </nav>
+        </div>
     </header>
     <main>
-        <article class="floating-nav">
-            <div class="floating-nav-items">
-                <a class="floating-nav-items__item floating-btn-about" href="#aboutSection">About</a>
-                <div class="vertical-line" style="height: 30px;"></div>
-                <a class="floating-nav-items__item floating-btn-projects" href="#projectSection">Projects</a>
-                <div class="vertical-line" style="height: 30px;"></div>
-                <a class="floating-nav-items__item floating-btn-contact" href="#contactSection">Contact</a>
-            </div>
+        <nav class="floating-nav">
+            <ul class="floating-nav-items">
+                <li><a class="floating-nav-items__item floating-btn-projects" href="#projectSection">Project</a></li>
+                <li class="vertical-line" style="height: 28px;"></li>
+                <li><a class="floating-nav-items__item floating-btn-about" href="#aboutSection">About</a></li>
+                <li class="vertical-line" style="height: 28px;"></li>
+                <li><a class="floating-nav-items__item floating-btn-contact" href="#contactSection">Contact</a></li>
+            </ul>
             <a style="display: none;animation: all 1s ease-in-out;" onclick="topFunction()" class="floating-nav__top" href="#tothetop" title="To The top!"
             ><i style="line-height: 1;" class="ri-arrow-up-circle-fill"></i></a>
-        </article>
-        <section class="hero container session color-white">
+        </nav>
+        <section class="blocks">
+        <section class="hero container color-white block">
             <img src="./img/heor-text.svg" alt="" srcset="">
             <h3 class="large-text hero__scroll__text">Hi, my name is Micah Tinife, I am a Software Engineer.</h3>
             <div class="carousel">
@@ -150,7 +151,7 @@
                     class="ri-arrow-down-s-line"></i></a>
         </section>
         <div class="coolBackgroundSpacer coolBackground"></div>
-        <section id="projectSection" class="projects session background-light"">
+        <section id="projectSection" class="projects background-light block"">
             <div class="container">
                 <h1 class="heading text-center color-dark">more projects</h1>
                 <p class="paragraph text-center sub-spacing color-dark">See my latest and past works.<br>If anything
@@ -199,7 +200,7 @@
             </div>
         </section>
         <div class="coolBackground1 coolBackgroundSpacer"></div>
-        <section id="aboutSection" class="about session container">
+        <section id="aboutSection" class="about container block">
             <div class="about__content">
                 <p class="large-text color-white">
                     <b>Welcome! My name is Micah Tinife, my passion is using my
@@ -212,29 +213,35 @@
             </div>
         </section>
         <div class="coolBackgroundSpacer coolBackground2"></div>
-        <section id="contactSection" class="contact container session color-white">
+        <section id="contactSection" class="contact container color-white block">
             <h1 class="heading text-center color-white">get in touch</h1>
             <div class="contact__content mid-spacing">
                 <article>
                     <p class="paragraph">I am here to help<br>how can I help?</p>
                     <p class="small-text">If you have any question, Please fill out the contact us form</p>
                 </article>
-                <form action="" class="contact__form">
+                <form action="https://formsubmit.co/mtinife@gmail.com" method="POST" class="contact__form">
                     <label for="" class="xtrasmall-text contact__form__label">Full Name</label>
-                    <input type="text" class="contact__form__input">
+                    <input type="text" name="name" class="contact__form__input" required>
+                    <input type="hidden" name="_next" value="https://yourdomain.co/thankyou.html">
                     <label for="" class="xtrasmall-text contact__form__label">Email Address</label>
-                    <input type="text" class="contact__form__input">
+                    <input type="text" name="email" class="contact__form__input" required>
                     <label for="" class="xtrasmall-text contact__form__label">Company</label>
-                    <input type="text" class="contact__form__input">
+                    <input type="text" name="company" class="contact__form__input">
                     <label for="subject" class="xtrasmall-text contact__form__label">Subject</label>
                     <select name="subject" id="" class="contact__form__select">
                         <option value="">Please choose from the list...</option>
+                        <option value="freelance">Freelance</option>
+                        <option value="custom">Custom Projects</option>
+                        <option value="hiring">Hiring</option>
                     </select>
+                    <input type="hidden" name="_subject" value="New submission!">
                     <label for="" class="xtrasmall-text contact__form__label">What can I do for you...?</label>
                     <textarea class="contact__form__msg" name="" id="" cols="30" rows="10"></textarea>
+                    <input type="hidden" name="_captcha" value="false">
                     <div class="contact__form__button">
                         <!-- <input type="submit" value="submit"> -->
-                        <button class="btn">
+                        <button type="submit" class="btn">
                             <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
                                 <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
                                 <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
@@ -247,6 +254,7 @@
                 </form>
             </div>
         </section>
+        </section>
     </main>
     <footer class="container">
         &copy; <script>
@@ -255,6 +263,7 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/splidejs/4.1.4/js/splide.min.js"></script>
     <script type="module" src="./js/script.js"></script>
+    <script src="./js/navchange.js"></script>
 </body>
 
 </html>

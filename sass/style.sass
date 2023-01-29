@@ -138,6 +138,10 @@ body
     margin: $center
     width: $container-width
 
+.mid-container
+    margin: $center
+    width: calc($container-width - 40%)
+
 .main-spacing
     padding: $main-spacing
 
@@ -204,11 +208,15 @@ body
     font-size: 18px
     font-weight: 100
 
-nav
+.header-nav
     display: flex
     justify-content: space-between
     align-items: center
     margin: 50px 0 0
+
+.active
+    background-color: $color-dark-grey
+    color: $color-white
 
 .floating-nav
     position: fixed
@@ -226,7 +234,8 @@ nav
         background-color: rgba(0, 0, 0, 0.75)
         padding: 7px
         border-radius: 120px
-        div.vertical-line
+        list-style: none
+        .vertical-line
             width: 1px
             background-color: $color-dark-black
             height: 100%
@@ -240,9 +249,6 @@ nav
             &:hover
                 background-color: $color-dark-grey
                 color: $color-white
-            .active
-                background-color: $color-dark-grey
-                color: $color-white
     &__top
         padding: 10px 10px 10px 9.5px 
         display: flex
@@ -254,7 +260,7 @@ nav
         font-size: 1.5em
         &:hover
             color: $color-white
-    .floating-btn-about
+    .floating-btn-projects
         border-top-left-radius: 60px
         border-bottom-left-radius: 60px
     .floating-btn-contact
@@ -486,3 +492,22 @@ footer
     font-size: .75em
     color: $color-dark-black
     padding: 20px 0
+
+.thankyoupage
+    position: relative
+    main
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        .logo
+            width: 7.5em
+    footer
+        position: absolute
+        left: 50%
+        bottom: 0
+        transform: translateX(-50%)

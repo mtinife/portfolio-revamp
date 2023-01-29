@@ -9366,6 +9366,11 @@ body {
   width: 90%;
 }
 
+.mid-container {
+  margin: 0 auto;
+  width: calc($container-width - 40%);
+}
+
 .main-spacing {
   padding: 10em 0;
 }
@@ -9443,11 +9448,16 @@ body {
   font-weight: 100;
 }
 
-nav {
+.header-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 50px 0 0;
+}
+
+.active {
+  background-color: #131313;
+  color: #FFFFFF;
 }
 
 .floating-nav {
@@ -9467,8 +9477,9 @@ nav {
   background-color: rgba(0, 0, 0, 0.75);
   padding: 7px;
   border-radius: 120px;
+  list-style: none;
 }
-.floating-nav-items div.vertical-line {
+.floating-nav-items .vertical-line {
   width: 1px;
   background-color: #363636;
   height: 100%;
@@ -9485,10 +9496,6 @@ nav {
   background-color: #131313;
   color: #FFFFFF;
 }
-.floating-nav-items__item .active {
-  background-color: #131313;
-  color: #FFFFFF;
-}
 .floating-nav__top {
   padding: 10px 10px 10px 9.5px;
   display: flex;
@@ -9502,7 +9509,7 @@ nav {
 .floating-nav__top:hover {
   color: #FFFFFF;
 }
-.floating-nav .floating-btn-about {
+.floating-nav .floating-btn-projects {
   border-top-left-radius: 60px;
   border-bottom-left-radius: 60px;
 }
@@ -9775,4 +9782,27 @@ footer {
   font-size: 0.75em;
   color: #363636;
   padding: 20px 0;
+}
+
+.thankyoupage {
+  position: relative;
+}
+.thankyoupage main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.thankyoupage main .logo {
+  width: 7.5em;
+}
+.thankyoupage footer {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
 }
